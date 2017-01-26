@@ -20,20 +20,23 @@ public class FieldServiceImpl implements FieldService {
 
 	@Override
 	public Fields insert(Fields arg0) {
-		// TODO Auto-generated method stub
 		return fieldsDao.save(arg0);
 	}
 
 	@Override
-	public void delete(Fields arg0) {
+	public void delete(Long arg0) {
 		fieldsDao.delete(arg0);
 
 	}
 
 	@Override
-	public Fields findOne(Fields arg0) {
-		// TODO Auto-generated method stub
-		return fieldsDao.findOne(arg0.getField_id());
+	public Fields findOne(Long arg0) {
+		return fieldsDao.findOne(arg0);
+	}
+
+	@Override
+	public Fields update(Fields arg0) {
+		return fieldsDao.save(arg0);
 	}
 
 }

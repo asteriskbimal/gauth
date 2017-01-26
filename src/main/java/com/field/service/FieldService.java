@@ -12,11 +12,11 @@ public interface FieldService {
 	
 	public Fields insert(Fields arg0);
 	
+	public Fields update(Fields arg0);
+
+	public void delete(Long arg0);
 
 
-	public void delete(Fields arg0);
-
-
-	public Fields findOne(Fields arg0);
+	public Fields findOne(Long arg0);
 }
 

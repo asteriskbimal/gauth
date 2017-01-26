@@ -12,10 +12,10 @@ public interface FieldGroupService {
 	
 	public FieldGroups insert(FieldGroups arg0);
 	
+	public FieldGroups update(FieldGroups arg0);
+	
+	public void delete(Long arg0);
 
 
-	public void delete(FieldGroups arg0);
-
-
-	public FieldGroups findOne(FieldGroups arg0);
+	public FieldGroups findOne(Long arg0);
 }

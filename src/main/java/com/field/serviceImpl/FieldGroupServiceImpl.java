@@ -25,15 +25,20 @@ public class FieldGroupServiceImpl implements FieldGroupService{
 	}
 
 	@Override
-	public void delete(FieldGroups arg0) {
+	public void delete(Long arg0) {
 		fieldsGroupDao.delete(arg0);
 		
 	}
 
 	@Override
-	public FieldGroups findOne(FieldGroups arg0) {
+	public FieldGroups findOne(Long arg0) {
 		
-		return fieldsGroupDao.findOne(arg0.getField_grp_id());
+		return fieldsGroupDao.findOne(arg0);
+	}
+
+	@Override
+	public FieldGroups update(FieldGroups arg0) {
+		return fieldsGroupDao.save(arg0);
 	}
 
 }
