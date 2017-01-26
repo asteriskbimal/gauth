@@ -7,6 +7,5 @@ import com.field.domain.FieldGroupField;
 
 @Repository
 public interface FieldsGroupFieldDao extends JpaRepository<FieldGroupField, Long>  {
-	
 
 }

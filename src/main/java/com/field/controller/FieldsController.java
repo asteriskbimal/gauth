@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,20 +48,21 @@ public class FieldsController {
 	}
 
 	// Creating new Fields
-	@RequestMapping(value = "/CreateField", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Fields> createField(Fields field) {
+	@RequestMapping(value = "/CreateField", method = RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Fields> createField(@RequestBody Fields field) {
+		System.out.println(field.getCrt_user());
 		return new ResponseEntity<Fields>(fieldServiceImpl.insert(field), HttpStatus.CREATED);
 	}
 
 	// Updating new Fields
-	@RequestMapping(value = "/UpdateField", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/UpdateField", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> updateField(Fields fields) {
 		fieldServiceImpl.update(fields);
 		return new ResponseEntity<String>("Fields Updated", HttpStatus.CREATED);
 	}
 
 	// Deleting new Fields
-	@RequestMapping(value = "/DeleteField/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/DeleteField/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deleteField(@PathVariable Long id) {
 		fieldServiceImpl.delete(id);
 		return new ResponseEntity<String>("Fields with id : " + id + " Successfully deleted", HttpStatus.CREATED);

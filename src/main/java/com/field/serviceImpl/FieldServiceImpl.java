@@ -3,11 +3,13 @@ package com.field.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.field.dao.FieldsDao;
 import com.field.domain.Fields;
 import com.field.service.FieldService;
 
+@Service
 public class FieldServiceImpl implements FieldService {
 
 	@Autowired
