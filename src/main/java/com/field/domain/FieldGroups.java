@@ -1,15 +1,22 @@
 package com.field.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
+@Table(name="field_groups")
 public class FieldGroups {
 
 	@Id
@@ -24,6 +31,10 @@ public class FieldGroups {
 	@Temporal(value = TemporalType.TIMESTAMP)
 	Date last_upd_dt;
 	String last_upd_user;
+	
+	@OneToMany
+	@JsonIgnore
+	List<Fields> fieldList=new ArrayList<Fields>();
 
 	
 

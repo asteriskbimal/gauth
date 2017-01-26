@@ -32,7 +32,7 @@ public class FieldsController {
 		return new ResponseEntity<List<Fields>>(fields, HttpStatus.OK);
 	}
 
-	// path variable define in url path /ListProductItem/{id}
+	// path variable define in url path /ListField/{id}
 	@RequestMapping(value = "/ListField/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Fields> getField(@PathVariable Long id) {
 

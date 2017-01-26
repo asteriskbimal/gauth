@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.field.domain;
 
 import java.util.Date;
@@ -13,21 +10,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * @author Bimal
- *
- */
-
 @Entity
-@Table(name="fields")
-public class Fields {
+@Table(name = "field_groups_field_relations")
+public class FieldGroupField {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	Long field_grp_field_id;
+	Long field_grp_id;
 	Long field_id;
-
-	String field_nm;
-	String field_desc;
 	Character status;
 	@Temporal(value = TemporalType.TIMESTAMP)
 	Date crt_dt;
@@ -36,25 +27,24 @@ public class Fields {
 	Date last_upd_dt;
 	String last_upd_user;
 
-	
+	public Long getField_grp_field_id() {
+		return field_grp_field_id;
+	}
+
+	public Long getField_grp_id() {
+		return field_grp_id;
+	}
+
+	public void setField_grp_id(Long field_grp_id) {
+		this.field_grp_id = field_grp_id;
+	}
+
 	public Long getField_id() {
 		return field_id;
 	}
 
-	public String getField_nm() {
-		return field_nm;
-	}
-
-	public void setField_nm(String field_nm) {
-		this.field_nm = field_nm;
-	}
-
-	public String getField_desc() {
-		return field_desc;
-	}
-
-	public void setField_desc(String field_desc) {
-		this.field_desc = field_desc;
+	public void setField_id(Long field_id) {
+		this.field_id = field_id;
 	}
 
 	public Character getStatus() {
