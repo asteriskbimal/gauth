@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.field.dao.FieldsGroupFieldDao;
 import com.field.domain.FieldGroupField;
+import com.field.domain.FieldGroups;
+import com.field.domain.Fields;
 import com.field.service.FieldGroupFieldService;
 
 @Service
@@ -41,6 +43,22 @@ public class FieldGroupFieldServiceImpl implements FieldGroupFieldService{
 	@Override
 	public FieldGroupField update(FieldGroupField arg0) {
 		return fieldsGroupFieldDao.save(arg0);
+	}
+
+	@Override
+	public void deleteByFieldId(Long arg0) {
+		fieldsGroupFieldDao.deleteByFieldId(arg0);
+		
+	}
+
+	@Override
+	public List<FieldGroups> findAllFieldGroups() {
+		return fieldsGroupFieldDao.findAllFieldGroups();
+	}
+
+	@Override
+	public List<Fields> findAllFieldsByGroupId(Long id) {
+		return fieldsGroupFieldDao.findAllFieldsByGroupId(id);
 	}
 
 }
